@@ -33,7 +33,7 @@ cd ec2-security-group-variables-outputs
 
 ### 2. Set your variables
 
-Create a `terraform.tfvars` file:
+modify the `terraform.tfvars` file:
 
 ```hcl
 key_name = "your-key-pair-name"
@@ -41,14 +41,21 @@ key_name = "your-key-pair-name"
 
 🔑 No key pair yet?
 
-Create one using AWS CLI:
+### Create one using AWS CLI:
+- Go to your home directory
+cd ~
 
-aws ec2 create-key-pair \
-  --key-name terraform-key \
-  --query 'KeyMaterial' \
-  --output text > terraform-key.pem
+- Create the key pair (saves to home directory)
+  aws ec2 create-key-pair --key-name terraform-key --query 'KeyMaterial' --output text > terraform-key.pem
 
+### Set correct permissions
 chmod 400 terraform-key.pem
+
+### Move it to your terraform directory
+mv terraform-key.pem ec2-security-group-variables-outputs/
+
+### Go back to your terraform directory
+cd ec2-security-group-variables-outputs/
 
 Then update:
 
