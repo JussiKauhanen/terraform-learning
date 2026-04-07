@@ -15,11 +15,11 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "terraform_cloudshell_demo_step_1" {
-  bucket = "terraform-cloudshell-demo-${data.aws_caller_identity.this.account_id}"
+  bucket = "terraform-learning-demo-${data.aws_caller_identity.this.account_id}"
 }
 
 /* ACL is no longer needed for S3's in this fashion
-  resource "aws_s3_bucket_acl" "terraform_cloudshell_demo_step_1" {
-  bucket = aws_s3_bucket.terraform_cloudshell_demo_step_1.id
+  resource "aws_s3_bucket_acl" "terraform-learning-demo" {
+  bucket = aws_s3_bucket.terraform-learning-demo.id
   acl    = "private"
 }*/
