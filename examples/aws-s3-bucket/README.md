@@ -47,7 +47,7 @@ git clone https://github.com/JussiKauhanen/terraform-learning.git
 ### 2. Navigate to the project directory
 
 ```bash
-cd terraform-for-dummies-aws/examples/aws-s3-bucket
+cd terraform-learning/examples/aws-s3-bucket
 ```
 
 ### 3. Initialize Terraform
