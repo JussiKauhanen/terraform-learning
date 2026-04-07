@@ -33,6 +33,7 @@ variable "key_name" {
 resource "aws_security_group" "web_sg" {
   name        = "terraform-ec2-sg"
   description = "Allow SSH inbound traffic"
+  vpc_id      = "vpc-08e5397b1141687ea"   # <-- add your VPC ID here
 
   ingress {
     description = "SSH from my IP"
@@ -40,6 +41,14 @@ resource "aws_security_group" "web_sg" {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["${chomp(data.http.my_ip.response_body)}/32"]
+  }
+
+  ingress {
+    description = "HTTP from anywhere"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
