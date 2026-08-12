@@ -1,2 +1,2 @@
 # terraform-learning
-Gentele intorduction to terraform using only CoudShell in AWS
+Gentle introduction to terraform using only CloudShell in AWS
